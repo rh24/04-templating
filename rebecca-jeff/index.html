@@ -36,6 +36,11 @@
     </script>
 
     <script id="filter-handlebars-template" type="text/x-handlebars-template">
+      <li>
+        <select id="{{filterBy}}-filter">
+          <option value="">-- Filter by {{filterByCapitalized}} --</option>
+        </select>
+      </li>
     </script>
   </head>
   <body>
@@ -60,16 +65,16 @@
       <section id="articles" class="tab-content">
         <div>
           <ul id="filters">
-            <li>
+            <!-- <li>
               <select id="author-filter">
                 <option value="">-- Filter by Authors --</option>
               </select>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <select id="category-filter">
                 <option value="">-- Filter by Categories --</option>
               </select>
-            </li>
+            </li> -->
           </ul>
         </div>
       </section>
