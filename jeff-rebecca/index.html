@@ -18,6 +18,20 @@
         - Insert placeholder keys.
         - If your object doesn't have values you need yet, you can add those properties in the model.
     -->
+
+    <script id="article-handlebars" type="text/x-handlebars-template">
+      <article class="template" data-category="cat">
+          <header>
+            <h1>{{title}}</h1>
+            <div>
+              By <address><a href="">{{authorName}}</a></address>
+              published <time datetime="2000-01-01">{{publishedOn}}</time>
+            </div>
+          </header>
+          <section class="article-body">{{body}}</section>
+          <a href="#" class="read-on">{{readMoreShowLessLink}}</a>
+        </article>
+    </script>
   </head>
   <body>
     <header class="clearfix">
