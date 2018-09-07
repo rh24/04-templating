@@ -34,7 +34,7 @@ articleView.handleAuthorFilter = () => {
       $(`article[data-author="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
-      $('article.template').hide();
+      // $('article.template').hide();
     }
     $('#category-filter').val('');
   });
@@ -47,7 +47,7 @@ articleView.handleCategoryFilter = () => {
       $(`article[data-category="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
-      $('article.template').hide();
+      // $('article.template').hide();
     }
     $('#author-filter').val('');
   });
