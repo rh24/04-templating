@@ -11,10 +11,11 @@ function Article (rawDataObj) {
   this.publishedOn = rawDataObj.publishedOn;
 }
 
+const source = document.getElementById('article-handlebars-template').innerHTML;
+const template = Handlebars.compile(source);
+
 Article.prototype.toHtml = function() {
   // DONE** TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-  const source = document.getElementById('article-handlebars-template').innerHTML;
-  const template = Handlebars.compile(source);
   const context = { articleList: articles }; // Article object
   const html = template(context); // generate HTML string
 
@@ -50,7 +51,5 @@ rawData.forEach(articleObject => {
   articles.push(new Article(articleObject));
 });
 
-// articles.forEach(article => {
-$('#articles').append(articles[0].toHtml());
-// });
+$('#articles').append(template({ articles }));
 
