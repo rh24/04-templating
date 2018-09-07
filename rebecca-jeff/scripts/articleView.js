@@ -10,7 +10,6 @@ let articleView = {};
 articleView.populateFilters = () => {
   $('article').each(function() {
     if ($(this).hasClass('template')) {
-      // debugger;
       let val = $(this).find('address a').text();
       let optionTag = `<option value="${val}">${val}</option>`;
 
@@ -34,7 +33,6 @@ articleView.handleAuthorFilter = () => {
       $(`article[data-author="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
-      // $('article.template').hide();
     }
     $('#category-filter').val('');
   });
@@ -47,7 +45,6 @@ articleView.handleCategoryFilter = () => {
       $(`article[data-category="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
-      // $('article.template').hide();
     }
     $('#author-filter').val('');
   });
