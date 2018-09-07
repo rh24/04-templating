@@ -21,11 +21,11 @@
 
     <script id="article-handlebars-template" type="text/x-handlebars-template">
       {{#each articleList}}
-      <article class="template" data-category="cat">
+      <article class="template" data-category="{{this.category}}" data-author="{{this.author}}">
           <header>
             <h1>{{this.title}}</h1>
             <div>
-              By <address><a href="">{{this.authorName}}</a></address>
+              By <address><a href="{{this.authorUrl}}">{{this.author}}</a></address>
               published <time datetime="2000-01-01">{{this.publishedOn}}</time>
             </div>
           </header>

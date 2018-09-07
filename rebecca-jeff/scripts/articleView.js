@@ -9,7 +9,8 @@ let articleView = {};
 
 articleView.populateFilters = () => {
   $('article').each(function() {
-    if (!$(this).hasClass('template')) {
+    if ($(this).hasClass('template')) {
+      // debugger;
       let val = $(this).find('address a').text();
       let optionTag = `<option value="${val}">${val}</option>`;
 
@@ -39,7 +40,7 @@ articleView.handleAuthorFilter = () => {
   });
 };
 
-articleView.handleCategoryFilter = function() {
+articleView.handleCategoryFilter = () => {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
@@ -52,7 +53,7 @@ articleView.handleCategoryFilter = function() {
   });
 };
 
-articleView.handleMainNav = function() {
+articleView.handleMainNav = () => {
   $('nav').on('click', '.tab', function(e) {
     e.preventDefault();
     $('.tab-content').hide();
@@ -62,7 +63,7 @@ articleView.handleMainNav = function() {
   $('nav .tab:first').click();
 };
 
-articleView.setTeasers = function() {
+articleView.setTeasers = () => {
   $('.article-body *:nth-of-type(n+2)').hide();
   $('article').on('click', 'a.read-on', function(e) {
     e.preventDefault();
@@ -79,7 +80,7 @@ articleView.setTeasers = function() {
   });
 };
 
-$(document).ready(function() {
+$(document).ready(() => {
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
