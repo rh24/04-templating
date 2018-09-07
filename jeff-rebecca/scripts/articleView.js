@@ -5,10 +5,11 @@ let articleView = {};
 // TODO: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
-// PUT YOUR RESPONSE HERE
+// Arrow functions do not bind the contextual `this`. As a result, whenever `this` is used in an arrow function, the value of `this` gets bubbled up to its nearest lexical scope. I determined whether a function could be refactored into an arrow function if it the script did not depend on grabbing a `this` value.
 
 articleView.populateFilters = function() {
   $('article').each(function() {
+    debugger;
     if (!$(this).hasClass('template')) {
       let val = $(this).find('address a').text();
       let optionTag = `<option value="${val}">${val}</option>`;
