@@ -13,10 +13,10 @@ function Article (rawDataObj) {
 
 Article.prototype.toHtml = function() {
   // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-  const source = document.getElementById('entry-template').innerHTML;
+  const source = document.getElementById('article-handlebars-template').innerHTML;
   const template = Handlebars.compile(source);
-  const context = {};
-  const html = template(context);
+  const context = { articleList: articles }; // Article object
+  const html = template(context); // generate HTML string
 
   // REVIEW: If your template will use properties that aren't on the object yet, add them.
   // Since your template can't hold any JS logic, we need to execute the logic here.
@@ -35,8 +35,10 @@ Article.prototype.toHtml = function() {
   // }
 
   // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
-
+  return html;
 };
+
+// Helper to pass in array of articles to handlebars template
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
 // PUT YOUR RESPONSE HERE

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Lab 4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="vendor/styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
@@ -19,18 +19,20 @@
         - If your object doesn't have values you need yet, you can add those properties in the model.
     -->
 
-    <script id="article-handlebars" type="text/x-handlebars-template">
+    <script id="article-handlebars-template" type="text/x-handlebars-template">
+      {{#each articleList}}
       <article class="template" data-category="cat">
           <header>
-            <h1>{{title}}</h1>
+            <h1>{{this.title}}</h1>
             <div>
-              By <address><a href="">{{authorName}}</a></address>
-              published <time datetime="2000-01-01">{{publishedOn}}</time>
+              By <address><a href="">{{this.authorName}}</a></address>
+              published <time datetime="2000-01-01">{{this.publishedOn}}</time>
             </div>
           </header>
-          <section class="article-body">{{body}}</section>
-          <a href="#" class="read-on">{{readMoreShowLessLink}}</a>
-        </article>
+          <section class="article-body">{{{this.body}}}</section>
+          <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
+      {{/each}}
     </script>
   </head>
   <body>
